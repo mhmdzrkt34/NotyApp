@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34408.163
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotyApp", "NotyApp", "{DC98D1EA-1F3A-46E2-9D62-405CA04AD8E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NotyAppHub", "NotyAppHub", "{8D175AD4-7C7F-4D70-98C8-069A440381E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NotyApp.api", "NotyApp.api\NotyApp.api.csproj", "{5D902B80-6A58-499E-8D90-6E7CC1B97D17}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{5D902B80-6A58-499E-8D90-6E7CC1B97D17}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D902B80-6A58-499E-8D90-6E7CC1B97D17}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D902B80-6A58-499E-8D90-6E7CC1B97D17}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D902B80-6A58-499E-8D90-6E7CC1B97D17}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{5D902B80-6A58-499E-8D90-6E7CC1B97D17} = {DC98D1EA-1F3A-46E2-9D62-405CA04AD8E6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DDD287DD-C3DC-4CBA-8201-5D27A1F2FABB}
+	EndGlobalSection
+EndGlobal

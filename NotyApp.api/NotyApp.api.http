@@ -1,0 +1,6 @@
+@NotyApp.api_HostAddress = http://localhost:5082
+
+GET {{NotyApp.api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
