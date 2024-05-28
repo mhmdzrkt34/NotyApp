@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NotyApp.api.contexts;
 using NotyApp.api.models;
+using NotyApp.api.requests.UserRequest;
 using System.Security.Claims;
 
 namespace NotyApp.api.Controllers
@@ -25,17 +26,70 @@ namespace NotyApp.api.Controllers
             _mapper = mapper;
         }
 
-        [HttpPost]
-        public async Task<IActionResult> Logout()
-        {
-            string userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value!;
-            User user = await _appDbContext.users.AsNoTracking().Include(i=>i.roles).Include(i=>i.addedContacts).Include(i=>i.recievedContacts).Include(i=>i.sendedMessages).Include(i=>i.recievedMessages).Where(item => item.id == userId).FirstAsync();
 
-            return new JsonResult(new
+
+        [HttpPost]
+        public async Task<IActionResult> sendMessage([FromBody] MessageRequest request) {
+
+
+            try
             {
 
-                user
-            });
+
+
+                if (!ModelState.IsValid)
+                {
+                    return BadRequest(ModelState);
+                }
+
+                User? usersernder = await _appDbContext.users.Where(item => item.id == request.sender_id).FirstOrDefaultAsync();
+
+
+                User? userreciever = await _appDbContext.users.Where(item => item.id == request.reciever_id).FirstOrDefaultAsync();
+
+                if (usersernder == null || userreciever == null)
+                {
+
+
+                    return new JsonResult(new
+                    {
+
+                        error = "sender or reciever not found"
+                    });
+                }
+
+                Message message = new Message
+                {
+                    message = request.message,
+                    type = request.type,
+                    sender_id = request.sender_id,
+                    reciever_id = request.reciever_id
+                };
+
+
+
+
+                await _appDbContext.messages.AddAsync(message);
+                await _appDbContext.SaveChangesAsync();
+                return new JsonResult(new
+                {   id=message.id,
+                    message=message.message,
+                    type=message.type,
+
+                    time=message.time,
+                    sender_id= message.sender_id,
+                    reciever_id= message.reciever_id
+
+
+
+                });
+
+            }catch(Exception ex)
+            {
+
+                return BadRequest(505);
+            }
+
 
 
         }
