@@ -6,7 +6,7 @@ namespace NotyApp.api.models
     {
 
         [Key]
-        public Guid id {  get; set; }
+        public string id {  get; set; }
 
 
         public string name { get; set; }
@@ -14,7 +14,7 @@ namespace NotyApp.api.models
         //senderContact
         public virtual User Sender { get; set; }
 
-        public Guid sender_id { get; set; }
+        public string sender_id { get; set; }
 
 
 
@@ -22,7 +22,7 @@ namespace NotyApp.api.models
 
         public virtual User reciever { get; set; }
 
-        public Guid reciever_id {  get; set; }
+        public string reciever_id {  get; set; }
 
         public bool status { get; set; }
 
@@ -31,7 +31,7 @@ namespace NotyApp.api.models
 
         public Contact()
         {
-            id= Guid.NewGuid();
+            id= Guid.NewGuid().ToString();
 
             time = DateTime.UtcNow;
             status = false;

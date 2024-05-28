@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace NotyApp.api.Migrations
 {
     /// <inheritdoc />
-    public partial class initial : Migration
+    public partial class start : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -15,7 +15,7 @@ namespace NotyApp.api.Migrations
                 name: "roles",
                 columns: table => new
                 {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     time = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -28,7 +28,7 @@ namespace NotyApp.api.Migrations
                 name: "users",
                 columns: table => new
                 {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     email = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     password = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     time = table.Column<DateTime>(type: "datetime2", nullable: false)
@@ -42,10 +42,10 @@ namespace NotyApp.api.Migrations
                 name: "contacts",
                 columns: table => new
                 {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    sender_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    reciever_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    sender_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    reciever_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     status = table.Column<bool>(type: "bit", nullable: false),
                     time = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -70,9 +70,9 @@ namespace NotyApp.api.Migrations
                 name: "messages",
                 columns: table => new
                 {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    sender_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    reciever_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    sender_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    reciever_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     type = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     time = table.Column<DateTime>(type: "datetime2", nullable: false),
                     message = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -98,9 +98,9 @@ namespace NotyApp.api.Migrations
                 name: "userRoles",
                 columns: table => new
                 {
-                    id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    role_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
-                    user_id = table.Column<Guid>(type: "uniqueidentifier", nullable: false),
+                    id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    role_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
+                    user_id = table.Column<string>(type: "nvarchar(450)", nullable: false),
                     time = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>

@@ -41,14 +41,14 @@ namespace NotyApp.api.Repositories.seedingRepository
               
 
 
-                for (int i = 0; i < 1000; i++)
+                for (int i = 0; i < 50; i++)
                 {
 
                     User user = new User
                     {
 
                         email = $"user{i}@example.com",
-                        password = "@User1"
+                        password = BCrypt.Net.BCrypt.HashPassword("@Newpassword1")
 
                     };
 
@@ -66,10 +66,10 @@ namespace NotyApp.api.Repositories.seedingRepository
                 }
                 Random random = new Random();
 
-                for(int i = 0; i < 1000; i++)
+                for(int i = 0; i < 50; i++)
                 {
 
-                    for(int j = 0; j < 1000; j++)
+                    for(int j = 0; j < 15; j++)
                     {
 
                         messages.Add(new Message
@@ -92,9 +92,9 @@ namespace NotyApp.api.Repositories.seedingRepository
 
                 }
 
-                for(int i = 0; i < 1000; i++)
+                for(int i = 0; i < 50; i++)
                 {
-                    for(int j = 0; j < 10; j++)
+                    for(int j = 0; j < 15; j++)
                     {
 
 

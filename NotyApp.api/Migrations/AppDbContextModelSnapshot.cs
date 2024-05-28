@@ -24,19 +24,20 @@ namespace NotyApp.api.Migrations
 
             modelBuilder.Entity("NotyApp.api.models.Contact", b =>
                 {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("reciever_id")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("reciever_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("sender_id")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("sender_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<bool>("status")
                         .HasColumnType("bit");
@@ -55,19 +56,20 @@ namespace NotyApp.api.Migrations
 
             modelBuilder.Entity("NotyApp.api.models.Message", b =>
                 {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("message")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<Guid>("reciever_id")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("reciever_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("sender_id")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("sender_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("time")
                         .HasColumnType("datetime2");
@@ -87,9 +89,8 @@ namespace NotyApp.api.Migrations
 
             modelBuilder.Entity("NotyApp.api.models.Role", b =>
                 {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("name")
                         .IsRequired()
@@ -105,9 +106,8 @@ namespace NotyApp.api.Migrations
 
             modelBuilder.Entity("NotyApp.api.models.User", b =>
                 {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("email")
                         .IsRequired()
@@ -127,18 +127,19 @@ namespace NotyApp.api.Migrations
 
             modelBuilder.Entity("NotyApp.api.models.UserRole", b =>
                 {
-                    b.Property<Guid>("id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("id")
+                        .HasColumnType("nvarchar(450)");
 
-                    b.Property<Guid>("role_id")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("role_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<DateTime>("time")
                         .HasColumnType("datetime2");
 
-                    b.Property<Guid>("user_id")
-                        .HasColumnType("uniqueidentifier");
+                    b.Property<string>("user_id")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
 
                     b.HasKey("id");
 

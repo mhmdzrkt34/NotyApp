@@ -5,7 +5,7 @@ namespace NotyApp.api.models
     public class Role
     {
         [Key]
-        public Guid id { get; set; }
+        public string id { get; set; }
 
         public string name { get; set; }
 
@@ -20,7 +20,7 @@ namespace NotyApp.api.models
         public Role()
         {
 
-            id = Guid.NewGuid();
+            id = Guid.NewGuid().ToString();
             time = DateTime.UtcNow;
         }
     }

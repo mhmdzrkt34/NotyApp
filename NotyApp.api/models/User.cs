@@ -5,7 +5,7 @@ namespace NotyApp.api.models
     public class User
     {
         [Key]
-        public Guid id {  get; set; }
+        public string id {  get; set; }
 
         public string email { get; set; }
 
@@ -31,7 +31,7 @@ namespace NotyApp.api.models
 
 
         public User() {
-            id = Guid.NewGuid();
+            id = Guid.NewGuid().ToString();
 
             time = DateTime.UtcNow;
         }

@@ -5,15 +5,15 @@ namespace NotyApp.api.models
     public class UserRole
     {
         [Key]
-        public Guid id { get; set; }
+        public string id { get; set; }
 
 
         public virtual Role role { get; set; }
 
-        public Guid role_id { get; set; }
+        public string role_id { get; set; }
 
         public User user { get; set; }
-        public Guid user_id { get; set; }
+        public string user_id { get; set; }
 
  
         public DateTime time {  get; set; }
@@ -23,7 +23,7 @@ namespace NotyApp.api.models
         public UserRole()
         {
 
-            id = Guid.NewGuid();
+            id = Guid.NewGuid().ToString();
 
             time = DateTime.Now;
 
